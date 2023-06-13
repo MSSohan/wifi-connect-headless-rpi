@@ -7,10 +7,6 @@
 import NetworkManager
 import uuid, os, sys, time, socket
 
-# This is needed to work with NetworkManager 1.30.6 and python-networkmanager 2.2      
-from dbus.mainloop.glib import DBusGMainLoop
-DBusGMainLoop(set_as_default = True)
-
 HOTSPOT_CONNECTION_NAME = 'hotspot'
 GENERIC_CONNECTION_NAME = 'python-wifi-connect'
 
@@ -81,8 +77,6 @@ def get_list_of_access_points():
     NM_SECURITY_WPA        = 0x2
     NM_SECURITY_WPA2       = 0x4
     NM_SECURITY_ENTERPRISE = 0x8
-   
-    
 
     ssids = [] # list we return
 
@@ -142,7 +136,7 @@ def get_list_of_access_points():
                 continue
 
             # Don't add other PFC's to the list!
-            if ap.Ssid.startswith('Rpi-'+os.uname()[1]):
+            if ap.Ssid.startswith('PFC_EDU-'):
                 continue
 
             ssids.append(entry)
@@ -157,7 +151,7 @@ def get_list_of_access_points():
 #------------------------------------------------------------------------------
 # Get hotspot SSID name.
 def get_hotspot_SSID():
-    return 'Rpi-'+os.uname()[1]
+    return 'PFC_EDU-'+os.getenv('RESIN_DEVICE_NAME_AT_INIT','aged-cheese')
 
 
 #------------------------------------------------------------------------------
