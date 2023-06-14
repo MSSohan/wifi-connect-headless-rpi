@@ -3,7 +3,7 @@
 ## NOTE: This application only installs and runs on Linux.
 
 ### Log into the Raspberry Pi from an ssh connection. The command below assumes the raspberry pi name is headlesswifi. Use the name you used during the SD card imaging.
-`ssh pi@headlesswifi.local`
+`ssh pi@uprint.local`
 
 ### Update the system
 `sudo apt-get update`
