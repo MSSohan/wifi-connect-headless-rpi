@@ -8,6 +8,9 @@
 
 ### You must have python3.6 and pip3.6 already installed.
 
+### Install both Network Manager if you need and then wifi-connect
+`sudo ./rpi_headless_wifi_install.sh` 
+
 ### If you are not already running NetworkManager on your system
 `./scripts/optional_install_NetworkManager_on_Linux.sh`
 
