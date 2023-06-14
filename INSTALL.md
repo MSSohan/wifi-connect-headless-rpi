@@ -2,6 +2,15 @@
 
 ## NOTE: This application only installs and runs on Linux.
 
+### Log into the Raspberry Pi from an ssh connection. The command below assumes the raspberry pi name is headlesswifi. Use the name you used during the SD card imaging.
+`ssh pi@headlesswifi.local`
+
+### Update the system
+`sudo apt-get update`
+
+### Install Git. The default Raspberry Pi OS does not have git installed.
+`sudo apt-get install git`
+
 ### Clone this repo
 1. `git clone https://github.com/MSSohan/wifi-connect-headless-rpi.git`
 1. `cd wifi-connect-headless-rpi/scripts`
