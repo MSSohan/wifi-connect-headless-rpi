@@ -2,8 +2,8 @@
 
 import subprocess, time
 
-DEFAULT_GATEWAY="192.168.42.1"
-DEFAULT_DHCP_RANGE="192.168.42.2,192.168.42.254"
+DEFAULT_GATEWAY="10.10.10.10"
+DEFAULT_DHCP_RANGE="10.10.10.11, 10.10.10.254"
 DEFAULT_INTERFACE="wlan0" # use 'ip link show' to see list of interfaces
 
 
