@@ -1,4 +1,4 @@
-# Running python-wifi-connect
+# Running uprint-connect
 
 If you missed it, this is how you [install the application](INSTALL.md).
 
