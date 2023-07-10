@@ -1,4 +1,4 @@
-# Installing python-wifi-connect
+# Installing uprint-connect
 
 ## NOTE: This application only installs and runs on Linux.
 
