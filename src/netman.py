@@ -7,8 +7,13 @@
 import NetworkManager
 import uuid, os, sys, time, socket
 
-HOTSPOT_CONNECTION_NAME = 'hotspot'
-GENERIC_CONNECTION_NAME = 'python-wifi-connect'
+# This is needed to work with NetworkManager 1.30.6 and python-networkmanager 2.2      
+from dbus.mainloop.glib import DBusGMainLoop
+DBusGMainLoop(set_as_default = True)
+
+#use must be different name
+HOTSPOT_CONNECTION_NAME = 'uprint'
+GENERIC_CONNECTION_NAME = 'uprint-connect'
 
 
 #------------------------------------------------------------------------------
@@ -61,7 +66,7 @@ def stop_connection(conn_name=GENERIC_CONNECTION_NAME):
         conn = connections[conn_name]
         conn.Delete()
     except Exception as e:
-        #print(f'stop_hotspot error {e}')
+        print(f'stop_hotspot error {e}')
         return False
     time.sleep(2)
     return True
@@ -77,6 +82,8 @@ def get_list_of_access_points():
     NM_SECURITY_WPA        = 0x2
     NM_SECURITY_WPA2       = 0x4
     NM_SECURITY_ENTERPRISE = 0x8
+   
+    
 
     ssids = [] # list we return
 
@@ -136,7 +143,7 @@ def get_list_of_access_points():
                 continue
 
             # Don't add other PFC's to the list!
-            if ap.Ssid.startswith('PFC_EDU-'):
+            if ap.Ssid.startswith(os.uname()[1]):
                 continue
 
             ssids.append(entry)
@@ -151,7 +158,7 @@ def get_list_of_access_points():
 #------------------------------------------------------------------------------
 # Get hotspot SSID name.
 def get_hotspot_SSID():
-    return 'PFC_EDU-'+os.getenv('RESIN_DEVICE_NAME_AT_INIT','aged-cheese')
+    return os.uname()[1]
 
 
 #------------------------------------------------------------------------------
@@ -195,8 +202,8 @@ def connect_to_AP(conn_type=None, conn_name=GENERIC_CONNECTION_NAME, \
                            'type': '802-11-wireless',
                            'uuid': str(uuid.uuid4())},
             'ipv4': {'address-data': 
-                        [{'address': '192.168.42.1', 'prefix': 24}],
-                     'addresses': [['192.168.42.1', 24, '0.0.0.0']],
+                        [{'address': '10.10.10.10', 'prefix': 24}],
+                     'addresses': [['10.10.10.10', 24, '0.0.0.0']],
                      'method': 'manual'},
             'ipv6': {'method': 'auto'}
         }
@@ -314,7 +321,3 @@ def connect_to_AP(conn_type=None, conn_name=GENERIC_CONNECTION_NAME, \
 
     print(f'Connection {conn_name} failed.')
     return False
-
-
-
-
