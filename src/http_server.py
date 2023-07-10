@@ -10,7 +10,7 @@ import netman
 import dnsmasq
 
 # Defaults
-ADDRESS = '192.168.42.1'
+ADDRESS = '10.10.10.10'
 PORT = 80
 UI_PATH = '../ui'
 
@@ -306,5 +306,3 @@ f'  -h Show help.\n'
     print(f'Device registration code={rcode}')
     print(f'Delete Connections={delete_connections}')
     main(address, port, ui_path, rcode, delete_connections)
-
-
