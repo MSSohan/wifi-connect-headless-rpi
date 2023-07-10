@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Command line args:
-#  -a <HTTP server address>     Default: 192.168.42.1
+#  -a <HTTP server address>     Default: 10.10.10.10
 #  -p <HTTP server port>        Default: 80
 #  -u <UI directory to serve>   Default: "../ui"
 #  -d Delete Connections First  Default: False

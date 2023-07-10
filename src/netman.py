@@ -66,7 +66,7 @@ def stop_connection(conn_name=GENERIC_CONNECTION_NAME):
         conn = connections[conn_name]
         conn.Delete()
     except Exception as e:
-        print(f'stop_hotspot error {e}')
+        #print(f'stop_hotspot error {e}')
         return False
     time.sleep(2)
     return True

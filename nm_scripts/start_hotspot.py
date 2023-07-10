@@ -34,8 +34,8 @@ hotspot = {
                 'interface-name': 'wlan0',
                 'type': '802-11-wireless',
                 'uuid': str(uuid.uuid4())},
- 'ipv4': {'address-data': [{'address': '192.168.42.1', 'prefix': 24}],
-          'addresses': [['192.168.42.1', 24, '0.0.0.0']],
+ 'ipv4': {'address-data': [{'address': '10.10.10.10', 'prefix': 24}],
+          'addresses': [['10.10.10.10', 24, '0.0.0.0']],
           'method': 'manual'},
  'ipv6': {'method': 'auto'}
 }
